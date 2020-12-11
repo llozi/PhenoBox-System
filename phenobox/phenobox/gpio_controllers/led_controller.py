@@ -5,13 +5,18 @@ from blinker import Blinker
 
 class LedController:
     #:GPIO Pin to which the green LED is connected
-    _GREEN = 19
+    #_GREEN = 19
+    _GREEN = 5
     #:GPIO Pin to which the blue LED is connected
-    _BLUE = 13
+    #_BLUE = 13
+    _BLUE = 6
     #:GPIO Pin to which the orange LED is connected
-    _ORANGE = 6
+    #_ORANGE = 6
+    _ORANGE = 7
     #:GPIO Pin to which the red LED is connected
-    _RED = 5
+    #_RED = 5
+    _RED = 19
+
     #: A dictionary to hold references to the active blinker instances to be able to stop them.
     blinkers = {
         _GREEN: None,

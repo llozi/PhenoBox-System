@@ -1,3 +1,16 @@
+# Fork of the original PhenoBox-System repo of the Gregor-Mendel-Institute
+[Original Repo](https://github.com/Gregor-Mendel-Institute/PhenoBox-System "PhenoBox-System, Gregor-Mendel-Institute")
+
+Changes include the design of a printed circuit board to interface the Raspberry Pi (fully electronic,
+no electro-mechanical elements) to facilitate the wiring.
+
+The interface board includes a MOSFET switch for controlling the illumination. It may be used to on/off switch 
+or even control the illumination intensity using PWM.
+
+The interface board requires a few changes in the assignment of the GPIO lines.
+
+A few simple python scripts have been added to test the workings of the interface board.
+
 # PhenoBox-System
 The “Phenobox”, a flexible, automated, open-source plant phenotyping solution
 

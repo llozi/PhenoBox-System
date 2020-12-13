@@ -1,0 +1,1676 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "Phenobox Driver Board"
+Date "2020-11-07"
+Rev "0.1.0"
+Comp "University of Basel, Department of Environmental Sciences"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Transistor_FET:ZXMP4A16G Q1
+U 1 1 5FA021BD
+P 5300 1100
+F 0 "Q1" H 5505 1054 50  0000 L CNN
+F 1 "IRFU9024NPBF" H 5505 1145 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 5500 1025 50  0001 L CIN
+F 3 "" H 5300 1100 50  0001 L CNN
+	1    5300 1100
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R1
+U 1 1 5FA09A4F
+P 5050 950
+F 0 "R1" H 5109 996 50  0000 L CNN
+F 1 "10k" H 5109 905 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 5050 950 50  0001 C CNN
+F 3 "~" H 5050 950 50  0001 C CNN
+	1    5050 950 
+	1    0    0    -1  
+$EndComp
+Text GLabel 4700 750  0    50   Output ~ 0
+24VDC
+Wire Wire Line
+	5400 750  5400 900 
+Wire Wire Line
+	5050 1050 5050 1100
+Wire Wire Line
+	5050 1100 5100 1100
+Wire Wire Line
+	5400 1300 5400 1400
+Wire Wire Line
+	5400 1400 5500 1400
+Text GLabel 5500 1400 2    50   Output ~ 0
+LECP6P_IN0
+$Comp
+L Transistor_FET:BS170 Q3
+U 1 1 5FA0C865
+P 4650 1350
+F 0 "Q3" H 4854 1396 50  0000 L CNN
+F 1 "BS170" H 4854 1305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Wide" H 4850 1275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BS/BS170.pdf" H 4650 1350 50  0001 L CNN
+	1    4650 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R5
+U 1 1 5FA0DDAB
+P 4300 1350
+F 0 "R5" V 4104 1350 50  0000 C CNN
+F 1 "1k" V 4195 1350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 4300 1350 50  0001 C CNN
+F 3 "~" H 4300 1350 50  0001 C CNN
+	1    4300 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0101
+U 1 1 5FA0F725
+P 4750 1600
+F 0 "#PWR0101" H 4750 1350 50  0001 C CNN
+F 1 "GND" H 4755 1427 50  0000 C CNN
+F 2 "" H 4750 1600 50  0001 C CNN
+F 3 "" H 4750 1600 50  0001 C CNN
+	1    4750 1600
+	1    0    0    -1  
+$EndComp
+Text GLabel 8150 5650 2    50   UnSpc ~ 0
+LECP6P_COM-
+Wire Wire Line
+	4750 1550 4750 1600
+Wire Wire Line
+	4400 1350 4450 1350
+Wire Wire Line
+	4200 1350 4150 1350
+Text GLabel 4050 6800 2    50   Input ~ 0
+LECP6P_INP
+$Comp
+L Device:R_Small R34
+U 1 1 5FA11BCF
+P 3850 6950
+F 0 "R34" H 3909 6996 50  0000 L CNN
+F 1 "47k" H 3909 6905 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3850 6950 50  0001 C CNN
+F 3 "~" H 3850 6950 50  0001 C CNN
+	1    3850 6950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R35
+U 1 1 5FA12A14
+P 3850 7250
+F 0 "R35" H 3909 7296 50  0000 L CNN
+F 1 "6.8k" H 3909 7205 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3850 7250 50  0001 C CNN
+F 3 "~" H 3850 7250 50  0001 C CNN
+	1    3850 7250
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0103
+U 1 1 5FA13454
+P 3850 7400
+F 0 "#PWR0103" H 3850 7150 50  0001 C CNN
+F 1 "GND" H 3855 7227 50  0000 C CNN
+F 2 "" H 3850 7400 50  0001 C CNN
+F 3 "" H 3850 7400 50  0001 C CNN
+	1    3850 7400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 6800 3850 6800
+Wire Wire Line
+	3850 6800 3850 6850
+Wire Wire Line
+	3850 7050 3850 7100
+Wire Wire Line
+	3850 7350 3850 7400
+Wire Wire Line
+	3850 7100 3750 7100
+Connection ~ 3850 7100
+Wire Wire Line
+	3850 7100 3850 7150
+Text GLabel 4150 1350 0    50   Input ~ 0
+RPi_GPIO22
+Text GLabel 3750 7100 0    50   Output ~ 0
+RPi_GPIO20
+$Comp
+L Transistor_FET:BSP89 Q18
+U 1 1 5FA15AB7
+P 1800 6800
+F 0 "Q18" H 2004 6846 50  0000 L CNN
+F 1 "IRLL014NPbF" H 2004 6755 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2000 6725 50  0001 L CIN
+F 3 "https://www.infineon.com/dgdl/Infineon-BSP89-DS-v02_02-en.pdf?fileId=db3a30433b47825b013b4b8a07f90d55" H 1800 6800 50  0001 L CNN
+	1    1800 6800
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R33
+U 1 1 5FA17CBB
+P 1450 6800
+F 0 "R33" V 1254 6800 50  0000 C CNN
+F 1 "1k" V 1345 6800 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1450 6800 50  0001 C CNN
+F 3 "~" H 1450 6800 50  0001 C CNN
+	1    1450 6800
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0104
+U 1 1 5FA18771
+P 1900 7050
+F 0 "#PWR0104" H 1900 6800 50  0001 C CNN
+F 1 "GND" H 1905 6877 50  0000 C CNN
+F 2 "" H 1900 7050 50  0001 C CNN
+F 3 "" H 1900 7050 50  0001 C CNN
+	1    1900 7050
+	1    0    0    -1  
+$EndComp
+Text GLabel 2200 6550 2    50   Input ~ 0
+WERMA_LED_ORANGE
+Wire Wire Line
+	2200 6550 1900 6550
+Wire Wire Line
+	1900 6550 1900 6600
+Wire Wire Line
+	1900 7000 1900 7050
+Wire Wire Line
+	1550 6800 1600 6800
+Wire Wire Line
+	1300 6800 1350 6800
+Text GLabel 1200 7600 0    50   Input ~ 0
+24VDC
+Text GLabel 2100 7600 2    50   Output ~ 0
+WERMA_LED_COM
+Wire Wire Line
+	1200 7600 1900 7600
+$Comp
+L Device:R_Small R3
+U 1 1 5FA24627
+P 4900 1100
+F 0 "R3" V 5096 1100 50  0000 C CNN
+F 1 "47k" V 5005 1100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 4900 1100 50  0001 C CNN
+F 3 "~" H 4900 1100 50  0001 C CNN
+	1    4900 1100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5000 1100 5050 1100
+Connection ~ 5050 1100
+Wire Wire Line
+	4800 1100 4750 1100
+Wire Wire Line
+	4750 1100 4750 1150
+$Comp
+L Transistor_FET:BSP89 Q17
+U 1 1 5FA30268
+P 1800 6000
+F 0 "Q17" H 2004 6046 50  0000 L CNN
+F 1 "IRLL014NPbF" H 2004 5955 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2000 5925 50  0001 L CIN
+F 3 "https://www.infineon.com/dgdl/Infineon-BSP89-DS-v02_02-en.pdf?fileId=db3a30433b47825b013b4b8a07f90d55" H 1800 6000 50  0001 L CNN
+	1    1800 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R30
+U 1 1 5FA30272
+P 1450 6000
+F 0 "R30" V 1254 6000 50  0000 C CNN
+F 1 "1k" V 1345 6000 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1450 6000 50  0001 C CNN
+F 3 "~" H 1450 6000 50  0001 C CNN
+	1    1450 6000
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0105
+U 1 1 5FA3027C
+P 1900 6250
+F 0 "#PWR0105" H 1900 6000 50  0001 C CNN
+F 1 "GND" H 1905 6077 50  0000 C CNN
+F 2 "" H 1900 6250 50  0001 C CNN
+F 3 "" H 1900 6250 50  0001 C CNN
+	1    1900 6250
+	1    0    0    -1  
+$EndComp
+Text GLabel 2200 5750 2    50   Input ~ 0
+WERMA_LED_BLUE
+Text GLabel 1300 6000 0    50   Input ~ 0
+RPi_GPIO6
+Wire Wire Line
+	2200 5750 1900 5750
+Wire Wire Line
+	1900 5750 1900 5800
+Wire Wire Line
+	1900 6200 1900 6250
+Wire Wire Line
+	1550 6000 1600 6000
+Wire Wire Line
+	1300 6000 1350 6000
+$Comp
+L Transistor_FET:BSP89 Q15
+U 1 1 5FA3490E
+P 1800 5200
+F 0 "Q15" H 2004 5246 50  0000 L CNN
+F 1 "IRLL014NPbF" H 2004 5155 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2000 5125 50  0001 L CIN
+F 3 "https://www.infineon.com/dgdl/Infineon-BSP89-DS-v02_02-en.pdf?fileId=db3a30433b47825b013b4b8a07f90d55" H 1800 5200 50  0001 L CNN
+	1    1800 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R25
+U 1 1 5FA34914
+P 1450 5200
+F 0 "R25" V 1254 5200 50  0000 C CNN
+F 1 "1k" V 1345 5200 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1450 5200 50  0001 C CNN
+F 3 "~" H 1450 5200 50  0001 C CNN
+	1    1450 5200
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0106
+U 1 1 5FA3491A
+P 1900 5450
+F 0 "#PWR0106" H 1900 5200 50  0001 C CNN
+F 1 "GND" H 1905 5277 50  0000 C CNN
+F 2 "" H 1900 5450 50  0001 C CNN
+F 3 "" H 1900 5450 50  0001 C CNN
+	1    1900 5450
+	1    0    0    -1  
+$EndComp
+Text GLabel 2200 4950 2    50   Input ~ 0
+WERMA_LED_GREEN
+Text GLabel 1300 5200 0    50   Input ~ 0
+RPi_GPIO5
+Wire Wire Line
+	2200 4950 1900 4950
+Wire Wire Line
+	1900 4950 1900 5000
+Wire Wire Line
+	1900 5400 1900 5450
+Wire Wire Line
+	1550 5200 1600 5200
+Wire Wire Line
+	1300 5200 1350 5200
+$Comp
+L Transistor_FET:BSP89 Q13
+U 1 1 5FA370AE
+P 1800 4400
+F 0 "Q13" H 2004 4446 50  0000 L CNN
+F 1 "IRLL014NPbF" H 2004 4355 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2000 4325 50  0001 L CIN
+F 3 "https://www.infineon.com/dgdl/Infineon-BSP89-DS-v02_02-en.pdf?fileId=db3a30433b47825b013b4b8a07f90d55" H 1800 4400 50  0001 L CNN
+	1    1800 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R21
+U 1 1 5FA370B4
+P 1450 4400
+F 0 "R21" V 1254 4400 50  0000 C CNN
+F 1 "1k" V 1345 4400 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1450 4400 50  0001 C CNN
+F 3 "~" H 1450 4400 50  0001 C CNN
+	1    1450 4400
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0107
+U 1 1 5FA370BA
+P 1900 4650
+F 0 "#PWR0107" H 1900 4400 50  0001 C CNN
+F 1 "GND" H 1905 4477 50  0000 C CNN
+F 2 "" H 1900 4650 50  0001 C CNN
+F 3 "" H 1900 4650 50  0001 C CNN
+	1    1900 4650
+	1    0    0    -1  
+$EndComp
+Text GLabel 2200 4150 2    50   Input ~ 0
+WERMA_LED_RED
+Text GLabel 1300 4400 0    50   Input ~ 0
+RPi_GPIO19
+Wire Wire Line
+	2200 4150 1900 4150
+Wire Wire Line
+	1900 4150 1900 4200
+Wire Wire Line
+	1900 4600 1900 4650
+Wire Wire Line
+	1550 4400 1600 4400
+Wire Wire Line
+	1300 4400 1350 4400
+Text GLabel 4050 5850 2    50   Input ~ 0
+LECP6P_SVRE
+$Comp
+L Device:R_Small R31
+U 1 1 5FA4EED6
+P 3850 6000
+F 0 "R31" H 3909 6046 50  0000 L CNN
+F 1 "47k" H 3909 5955 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3850 6000 50  0001 C CNN
+F 3 "~" H 3850 6000 50  0001 C CNN
+	1    3850 6000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R32
+U 1 1 5FA4EEDC
+P 3850 6300
+F 0 "R32" H 3909 6346 50  0000 L CNN
+F 1 "6.8k" H 3909 6255 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3850 6300 50  0001 C CNN
+F 3 "~" H 3850 6300 50  0001 C CNN
+	1    3850 6300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0108
+U 1 1 5FA4EEE2
+P 3850 6450
+F 0 "#PWR0108" H 3850 6200 50  0001 C CNN
+F 1 "GND" H 3855 6277 50  0000 C CNN
+F 2 "" H 3850 6450 50  0001 C CNN
+F 3 "" H 3850 6450 50  0001 C CNN
+	1    3850 6450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 5850 3850 5850
+Wire Wire Line
+	3850 5850 3850 5900
+Wire Wire Line
+	3850 6100 3850 6150
+Wire Wire Line
+	3850 6400 3850 6450
+Wire Wire Line
+	3850 6150 3750 6150
+Connection ~ 3850 6150
+Wire Wire Line
+	3850 6150 3850 6200
+Text GLabel 3750 6150 0    50   Output ~ 0
+RPi_GPIO16
+Text GLabel 4050 4900 2    50   Input ~ 0
+LECP6P_ALARM
+$Comp
+L Device:R_Small R26
+U 1 1 5FA50C96
+P 3850 5050
+F 0 "R26" H 3909 5096 50  0000 L CNN
+F 1 "47k" H 3909 5005 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3850 5050 50  0001 C CNN
+F 3 "~" H 3850 5050 50  0001 C CNN
+	1    3850 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R28
+U 1 1 5FA50C9C
+P 3850 5350
+F 0 "R28" H 3909 5396 50  0000 L CNN
+F 1 "6.8k" H 3909 5305 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 3850 5350 50  0001 C CNN
+F 3 "~" H 3850 5350 50  0001 C CNN
+	1    3850 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0109
+U 1 1 5FA50CA2
+P 3850 5500
+F 0 "#PWR0109" H 3850 5250 50  0001 C CNN
+F 1 "GND" H 3855 5327 50  0000 C CNN
+F 2 "" H 3850 5500 50  0001 C CNN
+F 3 "" H 3850 5500 50  0001 C CNN
+	1    3850 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4050 4900 3850 4900
+Wire Wire Line
+	3850 4900 3850 4950
+Wire Wire Line
+	3850 5150 3850 5200
+Wire Wire Line
+	3850 5450 3850 5500
+Wire Wire Line
+	3850 5200 3750 5200
+Connection ~ 3850 5200
+Wire Wire Line
+	3850 5200 3850 5250
+Text GLabel 3750 5200 0    50   Output ~ 0
+RPi_GPIO21
+Wire Wire Line
+	4700 750  5050 750 
+Wire Wire Line
+	5050 750  5050 850 
+Connection ~ 5050 750 
+Wire Wire Line
+	5050 750  5400 750 
+$Comp
+L Transistor_FET:ZXMP4A16G Q2
+U 1 1 5FA6D479
+P 8000 1100
+F 0 "Q2" H 8205 1054 50  0000 L CNN
+F 1 "IRFU9024NPBF" H 8205 1145 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 8200 1025 50  0001 L CIN
+F 3 "" H 8000 1100 50  0001 L CNN
+	1    8000 1100
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R2
+U 1 1 5FA6D47F
+P 7750 950
+F 0 "R2" H 7809 996 50  0000 L CNN
+F 1 "10k" H 7809 905 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7750 950 50  0001 C CNN
+F 3 "~" H 7750 950 50  0001 C CNN
+	1    7750 950 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8100 750  8100 900 
+Wire Wire Line
+	7750 1050 7750 1100
+Wire Wire Line
+	7750 1100 7800 1100
+Wire Wire Line
+	8100 1300 8100 1400
+Wire Wire Line
+	8100 1400 8200 1400
+Text GLabel 8200 1400 2    50   Output ~ 0
+LECP6P_SETUP
+$Comp
+L Transistor_FET:BS170 Q4
+U 1 1 5FA6D48C
+P 7350 1350
+F 0 "Q4" H 7554 1396 50  0000 L CNN
+F 1 "BS170" H 7554 1305 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Wide" H 7550 1275 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BS/BS170.pdf" H 7350 1350 50  0001 L CNN
+	1    7350 1350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R6
+U 1 1 5FA6D492
+P 7000 1350
+F 0 "R6" V 6804 1350 50  0000 C CNN
+F 1 "1k" V 6895 1350 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7000 1350 50  0001 C CNN
+F 3 "~" H 7000 1350 50  0001 C CNN
+	1    7000 1350
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0110
+U 1 1 5FA6D498
+P 7450 1600
+F 0 "#PWR0110" H 7450 1350 50  0001 C CNN
+F 1 "GND" H 7455 1427 50  0000 C CNN
+F 2 "" H 7450 1600 50  0001 C CNN
+F 3 "" H 7450 1600 50  0001 C CNN
+	1    7450 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7450 1550 7450 1600
+Wire Wire Line
+	7100 1350 7150 1350
+Wire Wire Line
+	6900 1350 6850 1350
+Text GLabel 6850 1350 0    50   Input ~ 0
+RPi_GPIO27
+$Comp
+L Device:R_Small R4
+U 1 1 5FA6D4A2
+P 7600 1100
+F 0 "R4" V 7796 1100 50  0000 C CNN
+F 1 "47k" V 7705 1100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7600 1100 50  0001 C CNN
+F 3 "~" H 7600 1100 50  0001 C CNN
+	1    7600 1100
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7700 1100 7750 1100
+Connection ~ 7750 1100
+Wire Wire Line
+	7500 1100 7450 1100
+Wire Wire Line
+	7450 1100 7450 1150
+Wire Wire Line
+	7400 750  7750 750 
+Wire Wire Line
+	7750 750  7750 850 
+Connection ~ 7750 750 
+Wire Wire Line
+	7750 750  8100 750 
+$Comp
+L Transistor_FET:ZXMP4A16G Q6
+U 1 1 5FA72649
+P 8000 2300
+F 0 "Q6" H 8205 2254 50  0000 L CNN
+F 1 "IRFU9024NPBF" H 8205 2345 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 8200 2225 50  0001 L CIN
+F 3 "" H 8000 2300 50  0001 L CNN
+	1    8000 2300
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R9
+U 1 1 5FA7264F
+P 7750 2150
+F 0 "R9" H 7809 2196 50  0000 L CNN
+F 1 "10k" H 7809 2105 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7750 2150 50  0001 C CNN
+F 3 "~" H 7750 2150 50  0001 C CNN
+	1    7750 2150
+	1    0    0    -1  
+$EndComp
+Text GLabel 7400 1950 0    50   Output ~ 0
+24VDC
+Wire Wire Line
+	8100 1950 8100 2100
+Wire Wire Line
+	7750 2250 7750 2300
+Wire Wire Line
+	7750 2300 7800 2300
+Wire Wire Line
+	8100 2500 8100 2600
+Wire Wire Line
+	8100 2600 8200 2600
+Text GLabel 8200 2600 2    50   Output ~ 0
+LECP6P_DRIVE
+$Comp
+L Transistor_FET:BS170 Q8
+U 1 1 5FA7265C
+P 7350 2550
+F 0 "Q8" H 7554 2596 50  0000 L CNN
+F 1 "BS170" H 7554 2505 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Wide" H 7550 2475 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BS/BS170.pdf" H 7350 2550 50  0001 L CNN
+	1    7350 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R14
+U 1 1 5FA72662
+P 7000 2550
+F 0 "R14" V 6804 2550 50  0000 C CNN
+F 1 "1k" V 6895 2550 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7000 2550 50  0001 C CNN
+F 3 "~" H 7000 2550 50  0001 C CNN
+	1    7000 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0111
+U 1 1 5FA72668
+P 7450 2800
+F 0 "#PWR0111" H 7450 2550 50  0001 C CNN
+F 1 "GND" H 7455 2627 50  0000 C CNN
+F 2 "" H 7450 2800 50  0001 C CNN
+F 3 "" H 7450 2800 50  0001 C CNN
+	1    7450 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7450 2750 7450 2800
+Wire Wire Line
+	7100 2550 7150 2550
+Wire Wire Line
+	6900 2550 6850 2550
+Text GLabel 6850 2550 0    50   Input ~ 0
+RPi_GPIO18
+$Comp
+L Device:R_Small R11
+U 1 1 5FA72672
+P 7600 2300
+F 0 "R11" V 7796 2300 50  0000 C CNN
+F 1 "47k" V 7705 2300 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7600 2300 50  0001 C CNN
+F 3 "~" H 7600 2300 50  0001 C CNN
+	1    7600 2300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7700 2300 7750 2300
+Connection ~ 7750 2300
+Wire Wire Line
+	7500 2300 7450 2300
+Wire Wire Line
+	7450 2300 7450 2350
+Wire Wire Line
+	7400 1950 7750 1950
+Wire Wire Line
+	7750 1950 7750 2050
+Connection ~ 7750 1950
+Wire Wire Line
+	7750 1950 8100 1950
+$Comp
+L Transistor_FET:ZXMP4A16G Q10
+U 1 1 5FA778EB
+P 7950 3500
+F 0 "Q10" H 8155 3454 50  0000 L CNN
+F 1 "IRFU9024NPBF" H 8155 3545 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 8150 3425 50  0001 L CIN
+F 3 "" H 7950 3500 50  0001 L CNN
+	1    7950 3500
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R16
+U 1 1 5FA778F1
+P 7700 3350
+F 0 "R16" H 7759 3396 50  0000 L CNN
+F 1 "10k" H 7759 3305 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7700 3350 50  0001 C CNN
+F 3 "~" H 7700 3350 50  0001 C CNN
+	1    7700 3350
+	1    0    0    -1  
+$EndComp
+Text GLabel 7350 3150 0    50   Output ~ 0
+24VDC
+Wire Wire Line
+	8050 3150 8050 3300
+Wire Wire Line
+	7700 3450 7700 3500
+Wire Wire Line
+	7700 3500 7750 3500
+Wire Wire Line
+	8050 3700 8050 3800
+Wire Wire Line
+	8050 3800 8150 3800
+Text GLabel 8150 3800 2    50   Output ~ 0
+LECP6P_RESET
+$Comp
+L Transistor_FET:BS170 Q12
+U 1 1 5FA778FE
+P 7300 3750
+F 0 "Q12" H 7504 3796 50  0000 L CNN
+F 1 "BS170" H 7504 3705 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Wide" H 7500 3675 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BS/BS170.pdf" H 7300 3750 50  0001 L CNN
+	1    7300 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R20
+U 1 1 5FA77904
+P 6950 3750
+F 0 "R20" V 6754 3750 50  0000 C CNN
+F 1 "1k" V 6845 3750 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 6950 3750 50  0001 C CNN
+F 3 "~" H 6950 3750 50  0001 C CNN
+	1    6950 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0112
+U 1 1 5FA7790A
+P 7400 4000
+F 0 "#PWR0112" H 7400 3750 50  0001 C CNN
+F 1 "GND" H 7405 3827 50  0000 C CNN
+F 2 "" H 7400 4000 50  0001 C CNN
+F 3 "" H 7400 4000 50  0001 C CNN
+	1    7400 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7400 3950 7400 4000
+Wire Wire Line
+	7050 3750 7100 3750
+Wire Wire Line
+	6850 3750 6800 3750
+Text GLabel 6800 3750 0    50   Input ~ 0
+RPi_GPIO25
+$Comp
+L Device:R_Small R18
+U 1 1 5FA77914
+P 7550 3500
+F 0 "R18" V 7746 3500 50  0000 C CNN
+F 1 "47k" V 7655 3500 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7550 3500 50  0001 C CNN
+F 3 "~" H 7550 3500 50  0001 C CNN
+	1    7550 3500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7650 3500 7700 3500
+Connection ~ 7700 3500
+Wire Wire Line
+	7450 3500 7400 3500
+Wire Wire Line
+	7400 3500 7400 3550
+Wire Wire Line
+	7350 3150 7700 3150
+Wire Wire Line
+	7700 3150 7700 3250
+Connection ~ 7700 3150
+Wire Wire Line
+	7700 3150 8050 3150
+$Comp
+L Transistor_FET:ZXMP4A16G Q14
+U 1 1 5FA7E2B7
+P 7950 4750
+F 0 "Q14" H 8155 4704 50  0000 L CNN
+F 1 "IRFU9024NPBF" H 8155 4795 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 8150 4675 50  0001 L CIN
+F 3 "" H 7950 4750 50  0001 L CNN
+	1    7950 4750
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R22
+U 1 1 5FA7E2BD
+P 7700 4600
+F 0 "R22" H 7759 4646 50  0000 L CNN
+F 1 "10k" H 7759 4555 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7700 4600 50  0001 C CNN
+F 3 "~" H 7700 4600 50  0001 C CNN
+	1    7700 4600
+	1    0    0    -1  
+$EndComp
+Text GLabel 7350 4400 0    50   Output ~ 0
+24VDC
+Wire Wire Line
+	8050 4400 8050 4550
+Wire Wire Line
+	7700 4700 7700 4750
+Wire Wire Line
+	7700 4750 7750 4750
+Wire Wire Line
+	8050 4950 8050 5050
+Wire Wire Line
+	8050 5050 8150 5050
+Text GLabel 8150 5050 2    50   Output ~ 0
+LECP6P_SVON
+$Comp
+L Transistor_FET:BS170 Q16
+U 1 1 5FA7E2CA
+P 7300 5000
+F 0 "Q16" H 7504 5046 50  0000 L CNN
+F 1 "BS170" H 7504 4955 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Wide" H 7500 4925 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BS/BS170.pdf" H 7300 5000 50  0001 L CNN
+	1    7300 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R27
+U 1 1 5FA7E2D0
+P 6950 5000
+F 0 "R27" V 6754 5000 50  0000 C CNN
+F 1 "100" V 6845 5000 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 6950 5000 50  0001 C CNN
+F 3 "~" H 6950 5000 50  0001 C CNN
+	1    6950 5000
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0113
+U 1 1 5FA7E2D6
+P 6750 5700
+F 0 "#PWR0113" H 6750 5450 50  0001 C CNN
+F 1 "GND" H 6755 5527 50  0000 C CNN
+F 2 "" H 6750 5700 50  0001 C CNN
+F 3 "" H 6750 5700 50  0001 C CNN
+	1    6750 5700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7050 5000 7100 5000
+$Comp
+L Device:R_Small R24
+U 1 1 5FA7E2E0
+P 7550 4750
+F 0 "R24" V 7746 4750 50  0000 C CNN
+F 1 "47k" V 7655 4750 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 7550 4750 50  0001 C CNN
+F 3 "~" H 7550 4750 50  0001 C CNN
+	1    7550 4750
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	7650 4750 7700 4750
+Connection ~ 7700 4750
+Wire Wire Line
+	7450 4750 7400 4750
+Wire Wire Line
+	7400 4750 7400 4800
+Wire Wire Line
+	7350 4400 7700 4400
+Wire Wire Line
+	7700 4400 7700 4500
+Connection ~ 7700 4400
+Wire Wire Line
+	7700 4400 8050 4400
+Text GLabel 7400 750  0    50   Output ~ 0
+24VDC
+$Comp
+L Transistor_FET:ZXMP4A16G Q9
+U 1 1 5FA88C59
+P 5300 3500
+F 0 "Q9" H 5505 3454 50  0000 L CNN
+F 1 "IRFU9024NPBF" H 5505 3545 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 5500 3425 50  0001 L CIN
+F 3 "" H 5300 3500 50  0001 L CNN
+	1    5300 3500
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R15
+U 1 1 5FA88C5F
+P 5050 3350
+F 0 "R15" H 5109 3396 50  0000 L CNN
+F 1 "10k" H 5109 3305 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 5050 3350 50  0001 C CNN
+F 3 "~" H 5050 3350 50  0001 C CNN
+	1    5050 3350
+	1    0    0    -1  
+$EndComp
+Text GLabel 4700 3150 0    50   Output ~ 0
+24VDC
+Wire Wire Line
+	5400 3150 5400 3300
+Wire Wire Line
+	5050 3450 5050 3500
+Wire Wire Line
+	5050 3500 5100 3500
+Wire Wire Line
+	5400 3700 5400 3800
+Wire Wire Line
+	5400 3800 5500 3800
+Text GLabel 5500 3800 2    50   Output ~ 0
+LECP6P_IN2
+$Comp
+L Transistor_FET:BS170 Q11
+U 1 1 5FA88C6C
+P 4650 3750
+F 0 "Q11" H 4854 3796 50  0000 L CNN
+F 1 "BS170" H 4854 3705 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Wide" H 4850 3675 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BS/BS170.pdf" H 4650 3750 50  0001 L CNN
+	1    4650 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R19
+U 1 1 5FA88C72
+P 4300 3750
+F 0 "R19" V 4104 3750 50  0000 C CNN
+F 1 "1k" V 4195 3750 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 4300 3750 50  0001 C CNN
+F 3 "~" H 4300 3750 50  0001 C CNN
+	1    4300 3750
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0114
+U 1 1 5FA88C78
+P 4750 4000
+F 0 "#PWR0114" H 4750 3750 50  0001 C CNN
+F 1 "GND" H 4755 3827 50  0000 C CNN
+F 2 "" H 4750 4000 50  0001 C CNN
+F 3 "" H 4750 4000 50  0001 C CNN
+	1    4750 4000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 3950 4750 4000
+Wire Wire Line
+	4400 3750 4450 3750
+Wire Wire Line
+	4200 3750 4150 3750
+Text GLabel 4150 3750 0    50   Input ~ 0
+RPi_GPIO24
+$Comp
+L Device:R_Small R17
+U 1 1 5FA88C82
+P 4900 3500
+F 0 "R17" V 5096 3500 50  0000 C CNN
+F 1 "47k" V 5005 3500 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 4900 3500 50  0001 C CNN
+F 3 "~" H 4900 3500 50  0001 C CNN
+	1    4900 3500
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5000 3500 5050 3500
+Connection ~ 5050 3500
+Wire Wire Line
+	4800 3500 4750 3500
+Wire Wire Line
+	4750 3500 4750 3550
+Wire Wire Line
+	4700 3150 5050 3150
+Wire Wire Line
+	5050 3150 5050 3250
+Connection ~ 5050 3150
+Wire Wire Line
+	5050 3150 5400 3150
+$Comp
+L Transistor_FET:ZXMP4A16G Q5
+U 1 1 5FA92896
+P 5300 2300
+F 0 "Q5" H 5505 2254 50  0000 L CNN
+F 1 "IRFU9024NPBF" H 5505 2345 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-251-3_Vertical" H 5500 2225 50  0001 L CIN
+F 3 "" H 5300 2300 50  0001 L CNN
+	1    5300 2300
+	1    0    0    1   
+$EndComp
+$Comp
+L Device:R_Small R8
+U 1 1 5FA9289C
+P 5050 2150
+F 0 "R8" H 5109 2196 50  0000 L CNN
+F 1 "10k" H 5109 2105 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 5050 2150 50  0001 C CNN
+F 3 "~" H 5050 2150 50  0001 C CNN
+	1    5050 2150
+	1    0    0    -1  
+$EndComp
+Text GLabel 4700 1950 0    50   Output ~ 0
+24VDC
+Wire Wire Line
+	5400 1950 5400 2100
+Wire Wire Line
+	5050 2250 5050 2300
+Wire Wire Line
+	5050 2300 5100 2300
+Wire Wire Line
+	5400 2500 5400 2600
+Wire Wire Line
+	5400 2600 5500 2600
+Text GLabel 5500 2600 2    50   Output ~ 0
+LECP6P_IN1
+$Comp
+L Transistor_FET:BS170 Q7
+U 1 1 5FA928A9
+P 4650 2550
+F 0 "Q7" H 4854 2596 50  0000 L CNN
+F 1 "BS170" H 4854 2505 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Wide" H 4850 2475 50  0001 L CIN
+F 3 "http://www.fairchildsemi.com/ds/BS/BS170.pdf" H 4650 2550 50  0001 L CNN
+	1    4650 2550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R13
+U 1 1 5FA928AF
+P 4300 2550
+F 0 "R13" V 4104 2550 50  0000 C CNN
+F 1 "1k" V 4195 2550 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 4300 2550 50  0001 C CNN
+F 3 "~" H 4300 2550 50  0001 C CNN
+	1    4300 2550
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR0115
+U 1 1 5FA928B5
+P 4750 2800
+F 0 "#PWR0115" H 4750 2550 50  0001 C CNN
+F 1 "GND" H 4755 2627 50  0000 C CNN
+F 2 "" H 4750 2800 50  0001 C CNN
+F 3 "" H 4750 2800 50  0001 C CNN
+	1    4750 2800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4750 2750 4750 2800
+Wire Wire Line
+	4400 2550 4450 2550
+Wire Wire Line
+	4200 2550 4150 2550
+Text GLabel 4150 2550 0    50   Input ~ 0
+RPi_GPIO23
+$Comp
+L Device:R_Small R10
+U 1 1 5FA928BF
+P 4900 2300
+F 0 "R10" V 5096 2300 50  0000 C CNN
+F 1 "47k" V 5005 2300 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 4900 2300 50  0001 C CNN
+F 3 "~" H 4900 2300 50  0001 C CNN
+	1    4900 2300
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	5000 2300 5050 2300
+Connection ~ 5050 2300
+Wire Wire Line
+	4800 2300 4750 2300
+Wire Wire Line
+	4750 2300 4750 2350
+Wire Wire Line
+	4700 1950 5050 1950
+Wire Wire Line
+	5050 1950 5050 2050
+Connection ~ 5050 1950
+Wire Wire Line
+	5050 1950 5400 1950
+Text GLabel 6250 5000 0    50   Input ~ 0
+RPi_GPIO26
+Text GLabel 1450 1100 0    50   Output ~ 0
+RPi_GPIO12
+Text GLabel 1450 1950 0    50   Output ~ 0
+RPi_GPIO4
+Text Notes 2450 950  0    50   ~ 0
+Start Button
+Text Notes 2450 1800 0    50   ~ 0
+Door Contact
+$Comp
+L Switch:SW_Push SW1
+U 1 1 5FACE81A
+P 2100 1100
+F 0 "SW1" H 2100 1385 50  0000 C CNN
+F 1 "SW_Push" H 2100 1294 50  0000 C CNN
+F 2 "" H 2100 1300 50  0001 C CNN
+F 3 "~" H 2100 1300 50  0001 C CNN
+	1    2100 1100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Switch:SW_Push SW2
+U 1 1 5FACFDF3
+P 2100 1950
+F 0 "SW2" H 2100 2235 50  0000 C CNN
+F 1 "SW_Push" H 2100 2144 50  0000 C CNN
+F 2 "" H 2100 2150 50  0001 C CNN
+F 3 "~" H 2100 2150 50  0001 C CNN
+	1    2100 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R7
+U 1 1 5FAD0449
+P 1600 1100
+F 0 "R7" V 1404 1100 50  0000 C CNN
+F 1 "1k" V 1495 1100 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1600 1100 50  0001 C CNN
+F 3 "~" H 1600 1100 50  0001 C CNN
+	1    1600 1100
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:R_Small R12
+U 1 1 5FAD0E3C
+P 1600 1950
+F 0 "R12" V 1404 1950 50  0000 C CNN
+F 1 "1k" V 1495 1950 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 1600 1950 50  0001 C CNN
+F 3 "~" H 1600 1950 50  0001 C CNN
+	1    1600 1950
+	0    1    1    0   
+$EndComp
+$Comp
+L Device:C_Small C2
+U 1 1 5FAD197E
+P 1800 2100
+F 0 "C2" H 1892 2146 50  0000 L CNN
+F 1 "1u" H 1892 2055 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L4.0mm_W2.5mm_P2.50mm" H 1800 2100 50  0001 C CNN
+F 3 "~" H 1800 2100 50  0001 C CNN
+	1    1800 2100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0116
+U 1 1 5FAD9ADC
+P 2350 2350
+F 0 "#PWR0116" H 2350 2100 50  0001 C CNN
+F 1 "GND" H 2355 2177 50  0000 C CNN
+F 2 "" H 2350 2350 50  0001 C CNN
+F 3 "" H 2350 2350 50  0001 C CNN
+	1    2350 2350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1450 1100 1500 1100
+Wire Wire Line
+	1450 1950 1500 1950
+Wire Wire Line
+	1800 2000 1800 1950
+Wire Wire Line
+	1700 1950 1800 1950
+Connection ~ 1800 1950
+Wire Wire Line
+	1800 1950 1900 1950
+Wire Wire Line
+	1700 1100 1800 1100
+Wire Wire Line
+	2300 1100 2350 1100
+Wire Wire Line
+	2350 1100 2350 1400
+Wire Wire Line
+	2300 1950 2350 1950
+Connection ~ 2350 1950
+Wire Wire Line
+	2350 1950 2350 2250
+Wire Wire Line
+	1800 2200 1800 2250
+Wire Wire Line
+	1800 2250 2350 2250
+Connection ~ 2350 2250
+Wire Wire Line
+	2350 2250 2350 2350
+$Comp
+L Device:C_Small C1
+U 1 1 5FB09FBE
+P 1800 1250
+F 0 "C1" H 1892 1296 50  0000 L CNN
+F 1 "1u" H 1892 1205 50  0000 L CNN
+F 2 "Capacitor_THT:C_Rect_L4.0mm_W2.5mm_P2.50mm" H 1800 1250 50  0001 C CNN
+F 3 "~" H 1800 1250 50  0001 C CNN
+	1    1800 1250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1800 1150 1800 1100
+Connection ~ 1800 1100
+Wire Wire Line
+	1800 1100 1900 1100
+Wire Wire Line
+	1800 1350 1800 1400
+Wire Wire Line
+	1800 1400 2350 1400
+Connection ~ 2350 1400
+Text GLabel 6250 5350 0    50   Input ~ 0
+RPi_GPIO17
+$Comp
+L Diode:BAT46 D1
+U 1 1 5FC20EF7
+P 6500 5000
+F 0 "D1" H 6500 5100 50  0000 C CNN
+F 1 "BAT46" H 6500 4900 50  0000 C CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" V 6500 5000 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/85662/bat46.pdf" V 6500 5000 50  0001 C CNN
+	1    6500 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Diode:BAT46 D2
+U 1 1 5FC22550
+P 6500 5350
+F 0 "D2" H 6500 5450 50  0000 C CNN
+F 1 "BAT46" H 6500 5250 50  0000 C CNN
+F 2 "Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal" V 6500 5350 50  0001 C CNN
+F 3 "~" V 6500 5350 50  0001 C CNN
+	1    6500 5350
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0117
+U 1 1 5FC23355
+P 6750 4500
+F 0 "#PWR0117" H 6750 4350 50  0001 C CNN
+F 1 "+5V" H 6765 4673 50  0000 C CNN
+F 2 "" H 6750 4500 50  0001 C CNN
+F 3 "" H 6750 4500 50  0001 C CNN
+	1    6750 4500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_Small R23
+U 1 1 5FC248ED
+P 6750 4650
+F 0 "R23" H 6809 4696 50  0000 L CNN
+F 1 "22k" H 6809 4605 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 6750 4650 50  0001 C CNN
+F 3 "~" H 6750 4650 50  0001 C CNN
+	1    6750 4650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 4500 6750 4550
+Wire Wire Line
+	6750 4750 6750 5000
+Wire Wire Line
+	6750 5000 6850 5000
+Connection ~ 6750 5000
+Text Notes 5800 5300 0    50   ~ 0
+SVON
+Text Notes 5800 4950 0    50   ~ 0
+ENABLE
+$Comp
+L Device:R_Small R29
+U 1 1 5FC53641
+P 6750 5500
+F 0 "R29" H 6809 5546 50  0000 L CNN
+F 1 "33k" H 6809 5455 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 6750 5500 50  0001 C CNN
+F 3 "~" H 6750 5500 50  0001 C CNN
+	1    6750 5500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6750 5600 6750 5650
+Wire Wire Line
+	6750 5650 7400 5650
+Wire Wire Line
+	7400 5200 7400 5650
+Connection ~ 6750 5650
+Wire Wire Line
+	6750 5650 6750 5700
+$Comp
+L Connector_Generic:Conn_02x13_Row_Letter_First J2
+U 1 1 5FCB42CA
+P 10100 1450
+F 0 "J2" H 10150 2267 50  0000 C CNN
+F 1 "Conn_02x13_Row_Letter_First" H 10150 2176 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x13_P2.54mm_Vertical" H 10100 1450 50  0001 C CNN
+F 3 "~" H 10100 1450 50  0001 C CNN
+	1    10100 1450
+	1    0    0    -1  
+$EndComp
+Text GLabel 9900 950  0    50   UnSpc ~ 0
+LECP6P_COM-
+Text GLabel 9900 850  0    50   UnSpc ~ 0
+LECP6P_COM+
+Text GLabel 9900 1050 0    50   UnSpc ~ 0
+LECP6P_IN0
+Text GLabel 9900 1150 0    50   UnSpc ~ 0
+LECP6P_IN1
+Text GLabel 9900 1250 0    50   UnSpc ~ 0
+LECP6P_IN2
+NoConn ~ 9900 1350
+NoConn ~ 9900 1450
+NoConn ~ 9900 1550
+NoConn ~ 9900 1750
+NoConn ~ 10400 1950
+NoConn ~ 10400 850 
+NoConn ~ 10400 950 
+NoConn ~ 10400 1050
+NoConn ~ 10400 1150
+NoConn ~ 10400 1250
+NoConn ~ 10400 1350
+NoConn ~ 10400 1450
+NoConn ~ 10400 1550
+NoConn ~ 10400 1650
+Text GLabel 9900 1650 0    50   UnSpc ~ 0
+LECP6P_SETUP
+Text GLabel 9900 1850 0    50   UnSpc ~ 0
+LECP6P_DRIVE
+Text GLabel 9900 2050 0    50   UnSpc ~ 0
+LECP6P_SVON
+Text GLabel 10400 1750 2    50   UnSpc ~ 0
+LECP6P_INP
+Text GLabel 10400 2050 2    50   UnSpc ~ 0
+LECP6P_ALARM
+Text GLabel 10400 1850 2    50   UnSpc ~ 0
+LECP6P_SVRE
+Text GLabel 9900 1950 0    50   UnSpc ~ 0
+LECP6P_RESET
+Text Notes 9600 2300 0    50   ~ 0
+LEC-CN5 I/O Cable Connector
+Text Notes 9650 5750 0    50   ~ 0
+Raspberry Pi GPIO Connector
+$Comp
+L power:+5V #PWR0118
+U 1 1 5FD45F2F
+P 10500 3300
+F 0 "#PWR0118" H 10500 3150 50  0001 C CNN
+F 1 "+5V" H 10515 3473 50  0000 C CNN
+F 2 "" H 10500 3300 50  0001 C CNN
+F 3 "" H 10500 3300 50  0001 C CNN
+	1    10500 3300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10500 3300 10500 3450
+Wire Wire Line
+	10500 3550 10400 3550
+Wire Wire Line
+	10400 3450 10500 3450
+Connection ~ 10500 3450
+Wire Wire Line
+	10500 3450 10500 3550
+Wire Wire Line
+	10400 3650 10500 3650
+Wire Wire Line
+	10500 3650 10500 4050
+Wire Wire Line
+	10500 4050 10400 4050
+Wire Wire Line
+	10500 4050 10500 4350
+Wire Wire Line
+	10500 4350 10400 4350
+Connection ~ 10500 4050
+Wire Wire Line
+	10500 4350 10500 4850
+Wire Wire Line
+	10500 4850 10400 4850
+Connection ~ 10500 4350
+Wire Wire Line
+	10500 4850 10500 5050
+Wire Wire Line
+	10500 5050 10400 5050
+Connection ~ 10500 4850
+Wire Wire Line
+	9900 3850 9800 3850
+Wire Wire Line
+	9800 3850 9800 4650
+Wire Wire Line
+	9800 4650 9900 4650
+Wire Wire Line
+	9800 4650 9800 5350
+Wire Wire Line
+	9800 5350 9900 5350
+Connection ~ 9800 4650
+$Comp
+L power:GND #PWR0119
+U 1 1 5FD8DE44
+P 9800 5400
+F 0 "#PWR0119" H 9800 5150 50  0001 C CNN
+F 1 "GND" H 9805 5227 50  0000 C CNN
+F 2 "" H 9800 5400 50  0001 C CNN
+F 3 "" H 9800 5400 50  0001 C CNN
+	1    9800 5400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0120
+U 1 1 5FD8E2F8
+P 10500 5400
+F 0 "#PWR0120" H 10500 5150 50  0001 C CNN
+F 1 "GND" H 10505 5227 50  0000 C CNN
+F 2 "" H 10500 5400 50  0001 C CNN
+F 3 "" H 10500 5400 50  0001 C CNN
+	1    10500 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10500 5050 10500 5400
+Connection ~ 10500 5050
+Wire Wire Line
+	9800 5350 9800 5400
+Connection ~ 9800 5350
+Text GLabel 9700 5250 0    50   Output ~ 0
+RPi_GPIO26
+Text GLabel 9700 3950 0    50   Output ~ 0
+RPi_GPIO17
+Text GLabel 10600 4450 2    50   Output ~ 0
+RPi_GPIO25
+Text GLabel 10600 3950 2    50   Output ~ 0
+RPi_GPIO18
+Text GLabel 9700 4050 0    50   Output ~ 0
+RPi_GPIO27
+Text GLabel 9700 4150 0    50   Output ~ 0
+RPi_GPIO22
+Text GLabel 10600 4150 2    50   Output ~ 0
+RPi_GPIO23
+Text GLabel 10600 4250 2    50   Output ~ 0
+RPi_GPIO24
+Text GLabel 10600 5350 2    50   Input ~ 0
+RPi_GPIO21
+Text GLabel 10600 5150 2    50   Input ~ 0
+RPi_GPIO16
+Text GLabel 10600 5250 2    50   Input ~ 0
+RPi_GPIO20
+Text GLabel 9700 5050 0    50   Output ~ 0
+RPi_GPIO13
+Text GLabel 9700 4950 0    50   Output ~ 0
+RPi_GPIO6
+Text GLabel 9700 4850 0    50   Output ~ 0
+RPi_GPIO5
+Text GLabel 9700 5150 0    50   Output ~ 0
+RPi_GPIO19
+Text GLabel 9700 3750 0    50   Input ~ 0
+RPi_GPIO4
+Text GLabel 10600 4950 2    50   Input ~ 0
+RPi_GPIO12
+Wire Wire Line
+	9700 3750 9900 3750
+Wire Wire Line
+	9700 3950 9900 3950
+Wire Wire Line
+	9700 4050 9900 4050
+Wire Wire Line
+	9700 4150 9900 4150
+Wire Wire Line
+	9700 4850 9900 4850
+Wire Wire Line
+	9700 4950 9900 4950
+Wire Wire Line
+	9700 5050 9900 5050
+Wire Wire Line
+	9700 5150 9900 5150
+Wire Wire Line
+	9700 5250 9900 5250
+Wire Wire Line
+	10400 3950 10600 3950
+Wire Wire Line
+	10400 4150 10600 4150
+Wire Wire Line
+	10400 4250 10600 4250
+Wire Wire Line
+	10400 4450 10600 4450
+Wire Wire Line
+	10400 4950 10600 4950
+Wire Wire Line
+	10400 5150 10600 5150
+Wire Wire Line
+	10400 5250 10600 5250
+Wire Wire Line
+	10400 5350 10600 5350
+NoConn ~ 9900 3450
+NoConn ~ 9900 3550
+NoConn ~ 9900 3650
+NoConn ~ 9900 4250
+NoConn ~ 9900 4350
+NoConn ~ 9900 4450
+NoConn ~ 9900 4550
+NoConn ~ 9900 4750
+NoConn ~ 10400 4750
+NoConn ~ 10400 4550
+NoConn ~ 10400 3850
+NoConn ~ 10400 3750
+$Comp
+L Connector:Screw_Terminal_01x02 J3
+U 1 1 5FEE5421
+P 2700 1500
+F 0 "J3" H 2780 1492 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 2780 1401 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal" H 2700 1500 50  0001 C CNN
+F 3 "~" H 2700 1500 50  0001 C CNN
+	1    2700 1500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J1
+U 1 1 5FEE89BB
+P 2700 650
+F 0 "J1" H 2780 642 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 2780 551 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal" H 2700 650 50  0001 C CNN
+F 3 "~" H 2700 650 50  0001 C CNN
+	1    2700 650 
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2350 1100 2350 750 
+Wire Wire Line
+	2350 750  2500 750 
+Connection ~ 2350 1100
+Wire Wire Line
+	2500 650  1800 650 
+Wire Wire Line
+	1800 650  1800 1100
+Wire Wire Line
+	2350 1400 2350 1600
+Wire Wire Line
+	2500 1500 1800 1500
+Wire Wire Line
+	1800 1500 1800 1950
+Wire Wire Line
+	2500 1600 2350 1600
+Connection ~ 2350 1600
+Wire Wire Line
+	2350 1600 2350 1950
+Text GLabel 2500 3050 0    50   Output ~ 0
+WERMA_LED_RED
+Text GLabel 2500 2750 0    50   Output ~ 0
+WERMA_LED_GREEN
+Text GLabel 2500 2850 0    50   Output ~ 0
+WERMA_LED_BLUE
+Text GLabel 2500 2950 0    50   Output ~ 0
+WERMA_LED_ORANGE
+$Comp
+L Connector:Screw_Terminal_01x08 J5
+U 1 1 5FA65206
+P 2700 3050
+F 0 "J5" H 2780 3042 50  0000 L CNN
+F 1 "Screw_Terminal_01x08" H 2780 2951 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-8-5.08_1x08_P5.08mm_Horizontal" H 2700 3050 50  0001 C CNN
+F 3 "~" H 2700 3050 50  0001 C CNN
+	1    2700 3050
+	1    0    0    -1  
+$EndComp
+Text GLabel 2500 3250 0    50   Input ~ 0
+24VDC
+$Comp
+L power:GND #PWR0121
+U 1 1 5FA66BD4
+P 2400 3500
+F 0 "#PWR0121" H 2400 3250 50  0001 C CNN
+F 1 "GND" H 2405 3327 50  0000 C CNN
+F 2 "" H 2400 3500 50  0001 C CNN
+F 3 "" H 2400 3500 50  0001 C CNN
+	1    2400 3500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2500 3350 2400 3350
+Wire Wire Line
+	2400 3350 2400 3450
+Wire Wire Line
+	2500 3450 2400 3450
+Connection ~ 2400 3450
+Wire Wire Line
+	2400 3450 2400 3500
+Text GLabel 2500 3150 0    50   Output ~ 0
+WERMA_LED_COM
+Text GLabel 10600 4650 2    50   Output ~ 0
+RPi_GPIO7
+Wire Wire Line
+	10600 4650 10400 4650
+$Comp
+L Connector_Generic:Conn_02x20_Odd_Even J4
+U 1 1 5FD418BC
+P 10100 4350
+F 0 "J4" H 10150 5467 50  0000 C CNN
+F 1 "Conn_02x20_Odd_Even" H 10150 5376 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x20_P2.54mm_Vertical" H 10100 4350 50  0001 C CNN
+F 3 "~" H 10100 4350 50  0001 C CNN
+	1    10100 4350
+	1    0    0    -1  
+$EndComp
+Text GLabel 1300 6800 0    50   Input ~ 0
+RPi_GPIO7
+$Comp
+L Transistor_FET:BSP89 Q19
+U 1 1 5FA6C308
+P 5750 6650
+F 0 "Q19" H 5954 6696 50  0000 L CNN
+F 1 "IRL3705NPbF" H 5954 6605 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5950 6575 50  0001 L CIN
+F 3 "https://www.infineon.com/dgdl/Infineon-BSP89-DS-v02_02-en.pdf?fileId=db3a30433b47825b013b4b8a07f90d55" H 5750 6650 50  0001 L CNN
+	1    5750 6650
+	1    0    0    -1  
+$EndComp
+Text GLabel 5300 6650 0    50   Input ~ 0
+RPi_GPIO13
+$Comp
+L Device:R_Small R36
+U 1 1 5FA6F878
+P 5450 6650
+F 0 "R36" V 5254 6650 50  0000 C CNN
+F 1 "1k" V 5345 6650 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal" H 5450 6650 50  0001 C CNN
+F 3 "~" H 5450 6650 50  0001 C CNN
+	1    5450 6650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5350 6650 5300 6650
+$Comp
+L power:GND #PWR0122
+U 1 1 5FA7DAFA
+P 5850 6950
+F 0 "#PWR0122" H 5850 6700 50  0001 C CNN
+F 1 "GND" H 5855 6777 50  0000 C CNN
+F 2 "" H 5850 6950 50  0001 C CNN
+F 3 "" H 5850 6950 50  0001 C CNN
+	1    5850 6950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 6850 5850 6900
+Wire Wire Line
+	5850 6450 5850 6250
+$Comp
+L Connector:Screw_Terminal_01x02 J6
+U 1 1 5FA994EA
+P 6450 6250
+F 0 "J6" H 6530 6242 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 6530 6151 50  0000 L CNN
+F 2 "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal" H 6450 6250 50  0001 C CNN
+F 3 "~" H 6450 6250 50  0001 C CNN
+	1    6450 6250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5850 6250 6250 6250
+Wire Wire Line
+	6250 6350 6200 6350
+Wire Wire Line
+	6200 6350 6200 6900
+Wire Wire Line
+	6200 6900 5850 6900
+Connection ~ 5850 6900
+Wire Wire Line
+	5850 6900 5850 6950
+Text Notes 5600 6100 0    50   ~ 0
+PWM Output\nLED Dimmer
+Wire Wire Line
+	7400 5650 8150 5650
+Connection ~ 7400 5650
+Text GLabel 2100 7400 2    50   Output ~ 0
+LECP6P_COM+
+Wire Wire Line
+	2100 7400 1900 7400
+Wire Wire Line
+	1900 7400 1900 7600
+Connection ~ 1900 7600
+Wire Wire Line
+	1900 7600 2100 7600
+Wire Wire Line
+	6750 5000 6750 5350
+Wire Wire Line
+	6250 5000 6350 5000
+Wire Wire Line
+	6650 5000 6750 5000
+Wire Wire Line
+	6650 5350 6750 5350
+Connection ~ 6750 5350
+Wire Wire Line
+	6750 5350 6750 5400
+Wire Wire Line
+	6350 5350 6250 5350
+$EndSCHEMATC

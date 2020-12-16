@@ -9,7 +9,7 @@ from gpio_controllers import MotorController
 
 def main():
 
-  GPIO.setmode(GPIO.BCM)
+  #GPIO.setmode(GPIO.BCM)
 
   # Pin declarations
   _SVON   = 17
@@ -25,56 +25,19 @@ def main():
   _INP    = 20
   _SVRE   = 16
 
-  GPIO.setup(_ENABLE, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(_SVON, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(_IN0, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(_IN1, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(_IN2, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(_SETUP, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(_DRIVE, GPIO.OUT, initial=GPIO.LOW)
-  GPIO.setup(_RESET, GPIO.OUT, initial=GPIO.LOW)
-
-  GPIO.setup(_ALARM, GPIO.IN)
-  GPIO.setup(_INP, GPIO.IN)
-  GPIO.setup(_SVRE, GPIO.IN)
-
-  print('GPIO pin setup done.')
-  time.sleep(1)
-
-  GPIO.output(_ENABLE, GPIO.HIGH)
-  GPIO.output(_SVON, GPIO.HIGH)
-  GPIO.output(_SETUP, GPIO.HIGH)
-  time.sleep(0.1)
-  GPIO.output(_SETUP, GPIO.LOW)
-  GPIO.output(_IN0, GPIO.HIGH)
-
   try:
-    alarm = GPIO.input(_ALARM)
-    if not alarm:
-      print('Alarm: ON, resetting...')
-      GPIO.output(_RESET, GPIO.HIGH)
-      time.sleep(0.1)
-      GPIO.output(_RESET, GPIO.LOW)
-    else:
-      print('Alarm: OFF')
+    motor = MotorController()
+    motor.initialize()
+    print('Motor initialization done.')
 
-    attarget = GPIO.input(_INP)
-    if attarget:
-      print('Target reached')
-    else:
-      print('heading Target')
-
-    svrdy = GPIO.input(_SVRE)
-    if svrdy:
-      print('Servo ready')
-    else:
-      print('Servo not ready')
-
-
-    #motor = MotorController()
-    #motor.initialize()
+    pos = 0
     while True:
-      pass
+      if pos > 5:
+        pos = 0
+      print('Move to position %d' % pos)
+      motor.move_to_position(pos)
+      pos = pos + 1
+      time.sleep(1)
 
 
   except KeyboardInterrupt:

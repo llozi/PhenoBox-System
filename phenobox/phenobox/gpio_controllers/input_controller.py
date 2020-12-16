@@ -1,5 +1,5 @@
 import logging
-from time import time
+import time
 
 from RPi import GPIO
 from enum import Enum
@@ -26,6 +26,7 @@ class InputController:
     def __init__(self):
         self._logger = logging.getLogger(__name__)
         self._logger.setLevel(logging.INFO)
+        self._last_start_was_pressed = False
         self.door_cb = None
         self.button_cb = None
 
@@ -85,10 +86,19 @@ class InputController:
 
         :return: None
         """
-        if GPIO.input(channel) == GPIO.LOW:
-            self._start_pressed = time()
-        elif GPIO.input(channel) == GPIO.HIGH:
-            self._start_released = time()
+        time.sleep(0.1)
+        chan = GPIO.input(channel)
+        self._logger.debug('evaluate_start() called')
+        if chan == GPIO.LOW:
+            self._start_pressed = time.time()
+            self._last_start_was_pressed = True
+            self._logger.debug('button pressed')
+        #else:
+        #elif chan == GPIO.HIGH:
+        elif self._last_start_was_pressed:
+            self._last_start_was_pressed = False
+            self._start_released = time.time()
+            self._logger.debug('button released')
             elapsed = self._start_released - self._start_pressed
             if elapsed > 3:
                 self._logger.info('Long press detected')
@@ -98,5 +108,7 @@ class InputController:
                 self._logger.info('Short press detected')
                 if self.button_cb:
                     self.button_cb(ButtonPress.SHORT)
-            self._start_pressed = 0
+            self._start_pressed = 1
             self._start_released = 0
+        else:
+          self._logger.debug('spurious high to low transition')

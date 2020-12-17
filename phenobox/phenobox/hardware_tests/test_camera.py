@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+  
+import logging
+from logging.handlers import RotatingFileHandler
+import time
+import sys
+sys.path.append("..")
+from config import config
+from camera import CameraController
+from camera.errors import ConnectionError, CaptureError
+
+def main():
+
+  config.load_config('{}/{}'.format('../config', 'test_config.ini'))
+
+  formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+  file_handler = RotatingFileHandler(getattr(config, 'cfg').get('box', 'log_file'),
+                                     maxBytes=5242880, backupCount=4)
+  file_handler.setLevel(logging.DEBUG)
+  file_handler.setFormatter(formatter)
+  root_logger = logging.getLogger()
+  root_logger.addHandler(file_handler)
+  root_logger.setLevel(logging.DEBUG)
+
+  try:
+    camera = CameraController()
+    camera.initialize()
+
+    camera.capture_and_download('test1')
+    camera.close()
+  except ConnectionError as e:
+    print('Connection Error "%s"' % e)
+  except CaptureError as e:
+    print('Capture Error "%s"' % e)
+    
+
+if __name__ == '__main__':
+  main()
+

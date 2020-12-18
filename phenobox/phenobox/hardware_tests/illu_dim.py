@@ -1,4 +1,10 @@
 #!/usr/bin/env python
+#
+# (C) 2020, University of Basel, Lukas Zimmermann
+#
+# This software is released under the terms of the
+# GNU GENERAL PUBLIC LICENSE Version 2, June 1991
+# See the LICENSE file in the root of this repository.
 
 import time
 import RPi.GPIO as GPIO
@@ -9,7 +15,9 @@ def main():
   global ILLUMINATION
   ILLUMINATION = 13
 
-  parser = ArgumentParser(description='Calibrates a Buck-3603 with custom firmware asking')
+  parser = ArgumentParser(description='Delivers a PWM signal to GPIO13 to control '
+                            'Phenobox's illumination intensity. Requires the pigio '
+                            'daemon running.')
 
   # positional parameters
   parser.add_argument('illumination', type=int,

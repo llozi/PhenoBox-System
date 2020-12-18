@@ -16,7 +16,7 @@ def main():
   ILLUMINATION = 13
 
   parser = ArgumentParser(description='Delivers a PWM signal to GPIO13 to control '
-                            'Phenobox's illumination intensity. Requires the pigio '
+                            'Phenobox\'s illumination intensity. Requires the pigio '
                             'daemon running.')
 
   # positional parameters

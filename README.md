@@ -11,6 +11,10 @@ The interface board requires a few changes in the assignment of the GPIO lines.
 
 A few simple python scripts have been added to test the workings of the interface board.
 
+For more details on the modifications check [this fork's Wiki](https://github.com/llozi/PhenoBox-System/wiki).
+
+Below follows the original README.md.
+
 # PhenoBox-System
 The “Phenobox”, a flexible, automated, open-source plant phenotyping solution
 

@@ -3,8 +3,8 @@ import errno
 import logging
 import os
 
-from camera.errors import ConnectionError, CaptureError
-from config import config
+from errors import ConnectionError, CaptureError
+from phenobox.config import config
 
 
 class libgphoto2error(Exception):

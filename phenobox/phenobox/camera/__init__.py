@@ -1,2 +1,2 @@
-from errors import *
-from camera_controller import CameraController
+from phenobox.camera.errors import *
+from phenobox.camera.camera_controller import CameraController

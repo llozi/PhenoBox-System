@@ -3,11 +3,13 @@
 import logging
 from logging.handlers import RotatingFileHandler
 import time
+import os
 import sys
-sys.path.append("..")
-from config import config
-from camera import CameraController
-from camera.errors import ConnectionError, CaptureError
+sys.path.append(os.path.expanduser('~/github/PhenoBox-System/phenobox'))
+from phenobox.config import config
+from phenobox.camera import CameraController
+from phenobox.camera.errors import ConnectionError, CaptureError
+from phenobox.image_processing.code_scanner import CodeScanner
 
 def main():
 
@@ -27,6 +29,12 @@ def main():
     camera.initialize()
 
     camera.capture_and_download('test1')
+    code_scanner = CodeScanner()
+    code_information = code_scanner.scan_image('/home/pi/pictures/test1.jpg')
+    if code_information is not None:
+      print('Decoded from QRCode: "%s"' % code_information)
+    else:
+      print('No decodable QRCode found')
     camera.close()
   except ConnectionError as e:
     print('Connection Error "%s"' % e)

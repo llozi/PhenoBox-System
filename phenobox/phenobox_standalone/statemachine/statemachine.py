@@ -6,8 +6,6 @@ from transitions import Machine
 from transitions import State
 import uuid
 
-from shutil import copy
-
 from camera import CaptureError, ConnectionError
 from plant import Plant
 
@@ -143,13 +141,13 @@ class PhenoboxStateMachine(Machine):
         print(Fore.BLUE + 'Taking first picture: {}'.format(pict_name))
         try:
             self.illumination.set_illumination(100)
+            time.sleep(1)
             picture_path = self.camera_controller.capture_and_download(pict_name)
             print('Picture path: "{}"'.format(picture_path))
             if picture_path is None:
                 self.error(error_code=8)
             else:
                 self.plant.add_picture(picture_path, self.motor_controller.current_angle)
-                copy(picture_path, '/home/pi/Phenobox/smbmnt')
                 self.analyze()
 
         except ConnectionError as err:
@@ -199,7 +197,7 @@ class PhenoboxStateMachine(Machine):
                 self.error(error_code=6)
             else:
                 self.plant.add_picture(picture_path, self.motor_controller.current_angle)
-                copy(picture_path, '/home/pi/Phenobox/smbmnt')
+                #copy(picture_path, '/home/pi/Phenobox/smbmnt')
                 self.next_picture()
         except CaptureError:
             self.error(error_code=4)

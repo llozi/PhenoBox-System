@@ -1,4 +1,5 @@
 import time
+import logging
 
 import jwt
 import requests
@@ -23,6 +24,9 @@ class TokenAuth:
         self._refresh_url = refresh_url
         self._username = username
         self._password = password
+        self._logger = logging.getLogger(__name__)
+        self._logger.setLevel(logging.INFO)
+        self._logger.info('TokenAuth instanciated')
 
     def is_authenticated(self):
         """
@@ -85,6 +89,8 @@ class TokenAuth:
 
         :return: True if the authentication was successful, False otherwise
         """
+        return True
+
         payload = {'username': self._username, 'password': self._password}
         r = requests.post(self._url,
                           json=payload)
@@ -102,6 +108,7 @@ class TokenAuth:
 
         :return: True if the reauthentication was successful, False otherwise
         """
+        self._logger.debug('reauth(): URL: "%s", Token: "%s"' % (self._refresh_url, self._refresh_token))
         r = requests.post(self._refresh_url, headers={'Authorization': 'Bearer ' + self._refresh_token})
         if r.status_code != 200:
             return False
@@ -122,6 +129,7 @@ class TokenAuth:
         if not self.check_and_auth():
             raise UnableToAuthenticateError()
         req = Request('POST', url, data=data)
+        self._logger.debug('prep_post(): URL: "%s", Data: "%s"' % (url, data))
         prepped = req.prepare()
         prepped.headers['Authorization'] = 'Bearer ' + self._id_token
         return prepped

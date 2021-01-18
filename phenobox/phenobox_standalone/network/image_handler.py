@@ -4,6 +4,7 @@ import logging
 import os
 import threading
 from queue import Queue, Empty
+from shutil import copyfile
 
 from PIL import Image
 from colorama import Fore
@@ -125,7 +126,7 @@ class ImageHandler(threading.Thread):
                                  path)
     param_string = 'snapshotId: "{}", path:"{}", filename:"{}",angle:{}'.format(
                    snapshot_id, target_path, filename, str(angle))
-    self._logger.info('Notifying server {}: "{}"'.format(target_path, param_string))
+    #self._logger.info('Notifying server {}: "{}"'.format(target_path, param_string))
 
 
   def run(self):
@@ -160,6 +161,19 @@ class ImageHandler(threading.Thread):
             continue
             # raise
 
+        originals_dir = os.path.join(dest_dir, 'originals')
+        try:
+          os.makedirs(originals_dir)
+        except OSError as exception:
+          if exception.errno != errno.EEXIST:
+            self._logger.exception(
+                'Unable to create folder ({}). (errno: {})'.format(originals_dir, exception.errno))
+            print(Fore.RED + 'Could not create directory to store original images to.')
+            # TODO send notification to admin
+            # TODO bailout?
+            continue
+            # raise
+
         pictures = list(plant.pictures)
         for index, picture in enumerate(pictures):
           if self.stopped():
@@ -176,6 +190,10 @@ class ImageHandler(threading.Thread):
             self._notify_server(shared_path, plant.snapshot_id, filename, angle)
             stored_pictures.append(dest)
             print(Fore.YELLOW + 'Saved')
+            filename_for_orig = '{name}_{angle}.jpg'.format(
+                                 name=plant.name.replace(" ", "_"), angle=str(angle))
+            copyfile(path, os.path.join(originals_dir, filename_for_orig))
+            print(Fore.YELLOW + 'Saved original image to {}'.format(filename_for_orig))
             # The current plant is always at index 0 because the previous one is deleted before
             plant.delete_picture(0)
           except KeyError as e:
@@ -185,16 +203,6 @@ class ImageHandler(threading.Thread):
           except IOError as e:
             self._logger.exception('IO Error while saving picture. msg: {}'.format(e.message))
             print(Fore.RED + e.message)
-            self.add_plant(plant)
-          except UnableToAuthenticateError as e:
-            os.remove(dest)
-            stored_pictures = stored_pictures[:-1]
-            self._logger.error(e.message)
-            self.add_plant(plant)
-          except ServerUnableToSaveImageError as e:
-            # TODO Inform user or admin
-            print(Fore.RED + e.message)
-            self._logger.error(e.message)
             self.add_plant(plant)
           except ConnectionError as e:
             print(Fore.RED + e.message)

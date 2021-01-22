@@ -2,6 +2,7 @@
 import os
 import sys
 import signal
+import subprocess
 import logging
 from logging.handlers import RotatingFileHandler
 from queue import Queue, Empty

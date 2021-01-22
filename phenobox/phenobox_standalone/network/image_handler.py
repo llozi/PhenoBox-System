@@ -38,7 +38,7 @@ class ImageHandler(threading.Thread):
       self.persist_dir = persist_dir
 
     if target_dir is None:
-      self.target_path = getattr(config, 'cfg').get('box', 'shared_folder_mountpoint')
+      self.target_path = getattr(config, 'cfg').get('box', 'preproc_image_folder')
     else:
       self.target_path = target_dir
 

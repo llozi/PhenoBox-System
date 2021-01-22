@@ -5,6 +5,7 @@ from colorama import Fore
 from transitions import Machine
 from transitions import State
 import uuid
+import re
 
 from camera import CaptureError, ConnectionError
 from plant import Plant
@@ -33,7 +34,8 @@ class PhenoboxStateMachine(Machine):
         8: "Unable to get picture from camera",
         9: "Unable to create snapshot on server",
         10: "This plant has already been processed for the current timestamp",
-        11: "Unable to connect to server"
+        11: "Unable to connect to server",
+        12: "QR-Code has unknown meaning"
     }
 
     def __init__(self, camera_controller, code_scanner, motor_controller,
@@ -46,6 +48,8 @@ class PhenoboxStateMachine(Machine):
         self.image_handler = image_handler
         self.illumination = illumination
         self.photo_count = photo_count
+        # this is used to split QR code data into several fields:
+        self.qrcode_pattern = re.compile('^([^ ]+) ([^ ]+) ([^ ]+) ([^ ]+).*$')
 
         self._logger = logging.getLogger(__name__)
         self._logger.setLevel(logging.INFO)
@@ -170,15 +174,30 @@ class PhenoboxStateMachine(Machine):
         self.plant.name = self.code_information
 
     def after_analyze(self, event):
-        if self.code_information is not None:
-            plant_id = self.code_information.decode('utf8')
-            print(Fore.CYAN + 'Decoded symbol "{}"'.format(plant_id))
-            self._logger.info( 'decoded symbol "{}"'.format(plant_id))
-            self.plant.name = plant_id
-        else:
-            self.error(error_code=1)
-            return
-        self.rotate()
+      if self.code_information is not None:
+        qrcode = self.code_information.decode('utf8')
+        print(Fore.CYAN + 'Decoded symbol "{}"'.format(qrcode))
+        self._logger.info( 'decoded symbol "{}"'.format(qrcode))
+        m = self.qrcode_pattern.match(qrcode)
+        if not m:
+          self.error(error_code=12)
+          return
+        
+        plant_id = m.group(1)
+        self.plant.name = plant_id
+
+        # the following in the original phenobox comes from a query to the server,
+        # here we create the property values from the scanned QR code instead. 
+        self.plant.experiment_name = m.group(2)
+        self.plant.sample_group_name = m.group(3)
+        self.plant.name = m.group(4)
+        #self.plant.index = index
+        #self.plant.snapshot_id = snapshot_id
+        #self.plant.timestamp_id = timestamp_id
+      else:
+        self.error(error_code=1)
+        return
+      self.rotate()
 
     def on_enter_drive(self, event):
         print(Fore.BLUE + 'Driving')

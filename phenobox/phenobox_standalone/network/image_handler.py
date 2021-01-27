@@ -145,8 +145,10 @@ class ImageHandler(threading.Thread):
 
         stored_pictures = list()
 
-        shared_path = os.path.join(plant.experiment_name,
-                                   plant.date.strftime("%Y_%m_%d"), str(hash(plant.timestamp_id)))
+        #shared_path = os.path.join(plant.experiment_name,
+        #                           plant.date.strftime("%Y_%m_%d"), str(hash(plant.timestamp_id)))
+        shared_path = os.path.join(plant.experiment_name,      # experiment (project)
+                                   plant.timestamp_id)         # time point
         dest_dir = os.path.join(self.target_path, shared_path)
         try:
           os.makedirs(dest_dir)
@@ -161,6 +163,7 @@ class ImageHandler(threading.Thread):
             continue
             # raise
 
+        # additionally save original camera images in case they are needed later on
         originals_dir = os.path.join(dest_dir, 'originals')
         try:
           os.makedirs(originals_dir)
@@ -180,18 +183,28 @@ class ImageHandler(threading.Thread):
             print(Fore.YELLOW + 'Persist current plant')
             plant.persist(self.persist_dir)
             break
-          path, angle = picture
+          path, shot_angle = picture
           img = self._get_img(path)
-          filename = '{name}_{angle}.png'.format(
-                      name=plant.name.replace(" ", "_"), angle=str(angle))
+          #filename = '{name}_{angle}.png'.format(
+          #            name=plant.name.replace(" ", "_"), angle=str(angle))
+          self._logger.info('Filename components: {}_{}_{}'.format(plant.snapshot_id, plant.sample_group_name, shot_angle))
+          filename = '{treatment}_{replicate}_{angle}.png'.format(
+                      treatment=plant.snapshot_id,
+                      replicate=plant.sample_group_name,
+                      angle=shot_angle)
+
           dest = os.path.join(dest_dir, filename)
           try:
             img.save(dest, compress_level=9)
-            self._notify_server(shared_path, plant.snapshot_id, filename, angle)
+            self._notify_server(shared_path, plant.snapshot_id, filename, shot_angle)
             stored_pictures.append(dest)
             print(Fore.YELLOW + 'Saved')
-            filename_for_orig = '{name}_{angle}.jpg'.format(
-                                 name=plant.name.replace(" ", "_"), angle=str(angle))
+            #filename_for_orig = '{name}_{angle}.jpg'.format(
+            #                     name=plant.name.replace(" ", "_"), angle=str(angle))
+            filename_for_orig = '{treatment}_{replicate}_{angle}.jpg'.format(
+                                 treatment=plant.snapshot_id,
+                                 replicate=plant.sample_group_name,
+                                 angle=shot_angle)
             copyfile(path, os.path.join(originals_dir, filename_for_orig))
             print(Fore.YELLOW + 'Saved original image to {}'.format(filename_for_orig))
             # The current plant is always at index 0 because the previous one is deleted before

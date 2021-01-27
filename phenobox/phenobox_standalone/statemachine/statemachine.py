@@ -171,7 +171,7 @@ class PhenoboxStateMachine(Machine):
         print(Fore.BLUE + 'Analyzing')
         path, _ = self.plant.get_first_picture()
         self.code_information = self.code_scanner.scan_image(path)
-        self.plant.name = self.code_information
+        self.plant.name = self.code_information.decode('utf8')
 
     def after_analyze(self, event):
       if self.code_information is not None:
@@ -184,16 +184,13 @@ class PhenoboxStateMachine(Machine):
           return
         
         plant_id = m.group(1)
-        self.plant.name = plant_id
 
         # the following in the original phenobox comes from a query to the server,
         # here we create the property values from the scanned QR code instead. 
-        self.plant.experiment_name = m.group(2)
-        self.plant.sample_group_name = m.group(3)
-        self.plant.name = m.group(4)
-        #self.plant.index = index
-        #self.plant.snapshot_id = snapshot_id
-        #self.plant.timestamp_id = timestamp_id
+        self.plant.experiment_name = m.group(1)    # experiment (project)
+        self.plant.timestamp_id = m.group(2)       # time point
+        self.plant.snapshot_id = m.group(3)        # treatment
+        self.plant.sample_group_name = m.group(4)  # replicate
       else:
         self.error(error_code=1)
         return
@@ -229,10 +226,12 @@ class PhenoboxStateMachine(Machine):
 
     def on_enter_upload(self, event):
         print(Fore.BLUE + 'Dispatching picture tasks')
+        self.led_controller.blink_orange()
         self.image_handler.add_plant(self.plant)
 
     # TODO rename to after_upload_dispatched
     def after_upload(self, event):
+        self.led_controller.switch_orange(False)
         self.upload_finished()
 
     def on_enter_error(self, event):
